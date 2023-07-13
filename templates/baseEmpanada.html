@@ -1,0 +1,61 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static './assets/css/estilos_empanada.css' %}">
+    <link rel="stylesheet" href="{% static './assets/css/estilos_crudb.css' %}">
+    <script src="https://kit.fontawesome.com/4c39ed3157.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
+
+    <title>La Empanadería</title>
+</head>
+
+<body>
+    <div class="container">
+            <header>
+                <div>
+                    <img src="{% static 'assets/media/logo3.jpeg' %}" alt="logo">
+                </div>
+
+            </header>
+            <nav>
+                <a href="{% url 'landing' %}">Inicio</a>
+                <a href="{% url 'nuestrosProductos' %}">Nuestros&#160Productos</a>
+                <a href="{% url 'contacto' %}">Pedidos vía 📧</a>
+                <a href="{% url 'nosotros' %}">Nosotros</a>
+                <a href="{% url 'empanadas:all' %}">Empanada</a>
+                
+                <a href="#">🛒<span id="cantidadCarrito" class="cantidadCarritoClass"></span></a>
+                
+                <div class="mapa"><a href="#"><img src="{% static 'assets/media/LOGO-PEDIDOS-YA.png' %}" alt="pedidos ya"></a></div>
+            </nav>
+
+        {% block content %}
+        {% endblock %}
+        
+        
+
+        <footer class="content">           
+            <div class="dfoot">
+                <p class="sectionP">      
+                    Seguinos en
+                </p>&#160&#160&#160
+                <a href="https://facebook.com/laempanaderia"><i class="fa-brands fa-facebook fa-xl" style="color: whitesmoke;"></i></a><br><br><br>
+                <a href="https://twitter.com/laempanaderia"><i class="fa-brands fa-twitter fa-xl" style="color: whitesmoke;"></i></a><br><br><br>
+                <a href="https://instagram.com/laempanaderia"><i class="fa-brands fa-square-instagram fa-xl" style="color: whitesmoke;"></i></a><br><br><br>
+                <a href="https://tiktok.com/laempanaderia"><i class="fa-brands fa-tiktok fa-xl" style="color: whitesmoke;"></i></a><br><br><br><a href="mailto:laempanaderia@gmail.com"><i class="fa-regular fa-envelope fa-xl" style="color:whitesmoke;"></i></a>&#160
+                <a aria-label="Chat on WhatsApp" href="https://wa.me/5492625439001?text=Hola%20mi%20pedido%20es%20:%20(no%20te%20olvides%20de%20poner%20tu%20dirección%20y%20modo%20de%20pago)" target="_blank"><i class="fa-brands fa-whatsapp fa-xl" style="color: whitesmoke;"></i></a>
+            </div>             
+        </footer>
+
+    </div> <!--  container   -->  
+
+</body>
+</html>

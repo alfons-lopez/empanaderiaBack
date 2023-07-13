@@ -1,0 +1,47 @@
+{% extends 'basecrud.html' %}
+{% comment %} {% load static  %} {% endcomment %}
+{% block content %}
+
+<main>
+    <div class="main-color">
+        <h1>CREAR EMPANADA</h1>
+        <br>
+        <br>
+
+        {% comment %} primera forma {% endcomment %}
+        {% comment %} <form class="formularioCreate" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div>
+                <label for="{{ form.tipo.id_for_label }}">Tipo:</label>
+                {{ form.tipo }}
+              </div>
+              <div>
+                <label for="{{ form.precio.id_for_label }}">Precio:</label>
+                {{ form.precio }}
+              </div>
+              <div> 
+                <label for="{{ form.imagen.id_for_label }}">Imagen:</label>
+                {{ form.imagen }}
+                {{ form.imagen.errors }}
+              </div>
+              <div>
+                <label for="{{ form.imagen.id_for_label }}">Seleccionar imagen:</label>
+                <input type="file" name="{{ form.imagen.name }}" accept="image/*">
+              </div>
+            <input type="submit" value="{{ tipo }}" />
+
+        </form> {% endcomment %}
+
+        {% comment %} segunda forma {% endcomment %}
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div>{{form.as_p}}</div>
+            <input class="boton" type="submit" value="{{ tipo }}" />
+        </form>
+        <br>
+        
+        <a href="{% url 'empanadas:all' %}">Volvamos al Inicio</a>
+    </div>
+</main>
+{% endblock %}

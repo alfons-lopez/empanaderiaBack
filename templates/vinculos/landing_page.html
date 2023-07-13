@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+
+<section class="banner">
+    <img src="{% static './assets/media/empanada1.png' %}" alt="imagen de empanadas">
+    <img src="{% static './assets/media/Captura2emp.PNG' %}" alt="img. de empanadas">
+    <img src="{% static './assets/media/Captura3emp.PNG' %}" alt="img.de empanadas">
+</section>
+
+<main>
+    <div class="contenedor">
+
+        <!-- CARDS -->
+        <div id="productos" class="productosClass">
+        </div>
+
+
+        <!-- <div class="contenedorTabla"> -->
+            <table  id="listaCarrito">
+                <caption>Carrito de Compras</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Variedad</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Cantidad (en docenas)</th>
+                    <th scope="col">Subtotal</th>
+                    <th scope="col">Eliminar</th>
+                  </tr>
+                </thead>
+
+                <tbody></tbody>
+                <tfoot id="footerTotal">
+                </tfoot>                        
+            </table>
+            
+        <button id="vaciarCarrito" class="vaciarCarrito"> Vaciar Carrito</button>
+
+    </div>
+</main>
+
+<script src="{% static './assets/JS/app.js' %}" ></script>
+
+{% endblock %}

@@ -1,0 +1,23 @@
+
+{% extends 'baseCrud.html' %}
+{% block content %}
+
+<main>
+    <div class="main-color">
+        <h1>Empanada {{ empanada.tipo }}</h1>
+        <br>
+        {% for label, value in empanada.get_fields %}
+          <p>{{ label | upper }}</p>
+          {% if label == 'img' %}
+            {{ value.img.url }}
+            <img src="{{ empanada.img.url }}" width="180" height="130">
+          {% else %}
+            <p>{{ value }}</p>
+          {% endif %}
+          <br>
+        {% endfor %}
+        <br>
+        <a href="{% url 'empanadas:all' %}">Volver al Inicio</a>
+      </div>
+</main>
+{% endblock %}

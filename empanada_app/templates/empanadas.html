@@ -1,0 +1,50 @@
+{% extends "baseEmpanada.html" %}
+{% load static  %}
+{% block content %}
+
+<main>
+    <div class="main-color-vinos contenedor">
+        <h1>Variedad de empanadas disponibles</h1>
+        <br>
+        <h2><a class="crear" href="{% url 'empanadas:create' %}">CREAR EMPANADA</a></h2>
+        <br>
+        
+        <table>
+            <thead>
+                <tr>
+                    {% comment %} <th>Nº Producto</th> {% endcomment %}
+                    <th>Id</th>
+                    <th>Variedad</th>
+                    <th>Precio</th>
+                    <th>Imagen</th>
+                    <th>Detalle</th>
+                    <th>Editar</th>
+                    <th>Borrar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for empanada in empanada_list %}
+                <tr>
+                    {% comment %} <td>{{ forloop.counter }}</td> {% endcomment %}
+                    <td>{{ empanada.id }}</td>
+                    <td>{{ empanada.tipo }}</td>
+                    <td>{{ empanada.precio }}</td>
+                    <td>
+                        <img src="{{ empanada.img.url }}" width="180" height="130">
+                    </td>
+                    <td>
+                        <a href="{% url 'empanadas:detail' empanada.id %}">👁‍🗨</a>
+                    </td>
+                    <td>
+                        <a href="{% url 'empanadas:update' empanada.id %}">📝</a>
+                    </td>
+                    <td>
+                        <a href="{% url 'empanadas:delete' empanada.id %}">❌</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</main>
+{% endblock %}
